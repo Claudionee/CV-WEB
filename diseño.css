@@ -355,4 +355,39 @@ h1 {
 /* Cuando el menú está abierto (clase .show-menu activa), 
    el JS se encarga de cambiar los display, pero por si acaso: */
 }
+/* --- FIX TIPOGRAFÍA RESPONSIVA --- */
+
+/* 1. Quitamos la justificación forzada del contenedor de texto
+      para que las palabras del título no se separen */
+.info-content {
+  text-align: left; /* Alineación natural a la izquierda */
+  padding-right: 2em; /* Un poco de aire a la derecha */
+}
+
+/* 2. Super Título Responsivo "Hero" */
+h1 {
+  /* Explicación de la magia clamp(MÍNIMO, IDEAL, MÁXIMO):
+     - Mínimo: 3rem (48px) para que no sea diminuto en tablet.
+     - Ideal: 8vw (8% del ancho de la pantalla). ¡Esto es lo que hace que crezca!
+     - Máximo: 7rem (112px) para que en pantallas gigantes sea enorme pero no rompa. */
+  font-size: clamp(3rem, 8vw, 7rem); 
+  line-height: 1.1; /* Más pegadito verticalmente */
+  margin-bottom: 0.5em;
+  font-weight: 800; /* Letra bien gruesa */
+}
+
+/* 3. Ajuste para que los párrafos de introducción también crezcan un poco */
+.info-content .e, 
+.info-content p {
+  text-align: left; /* Aseguramos lectura natural */
+  font-size: clamp(1rem, 1.5vw, 1.4rem) !important; /* El texto crece sutilmente con la pantalla */
+  line-height: 1.6;
+  max-width: 600px; /* Evita que las líneas de texto sean eternas en pantallas anchas */
+}
+
+/* Ajuste específico para el span de color aqua */
+.info-content span {
+  color: aqua;
+  display: inline-block; /* Evita roturas raras */
+}
 
