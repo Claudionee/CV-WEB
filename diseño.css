@@ -347,4 +347,12 @@ h1 {
   .portfolio, .contact-section, .wrapper {
     background-attachment: scroll; /* Evita glitches en móviles */
   }
+  /* Asegura que la X nazca oculta */
+#toggle_close {
+  display: none;
 }
+
+/* Cuando el menú está abierto (clase .show-menu activa), 
+   el JS se encarga de cambiar los display, pero por si acaso: */
+}
+
