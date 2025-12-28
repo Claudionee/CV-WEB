@@ -1,38 +1,45 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;700&display=swap');
 
-* {
+/* --- FIX 1: Reset Global Absoluto --- */
+html, body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden; /* Prohíbe terminantemente el scroll lateral */
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   text-align: justify;
-  overflow-x: hidden; /* Evita desbordamiento horizontal global */
 }
 
+* {
+  box-sizing: border-box; /* Asegura que los paddings no rompan el ancho */
+}
+
+/* --- FIX 2: Wrapper debe heredar el 100% real --- */
 .wrapper {
-  width: 100%; /* CORREGIDO: 100% en lugar de 100vw */
+  width: 100%;
   min-height: 100vh;
   background-image: url(R\ \(2\).jpg);
   background-size: cover;
-  background-position: center;
-  background-attachment: fixed; /* Fondo fijo al hacer scroll */
+  background-position: center top; /* Ajuste para que se vea mejor en móvil */
+  background-attachment: fixed;
   color: #fff;
-  overflow-x: hidden;
+  position: relative; /* Necesario para el z-index */
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
-  padding: 2em;
+  align-items: center; /* Alineación vertical centrada */
+  padding: 1.5em; /* Reduje un poco el padding */
+  width: 100%;
 }
 
 .brand {
-  margin-top: -7px;
+  font-size: 1.2rem;
   color: rgb(255, 255, 255);
+  z-index: 1001; /* Asegura que el logo se vea sobre el menú */
 }
 
 .brand span {
@@ -54,36 +61,45 @@ body {
   color: #fff;
   text-decoration: none;
   padding: 10px 20px;
+  transition: 0.3s;
 }
 
 .menu a:hover {
   background-color: aqua;
   color: #191c32;
-  border-radius: 5px; /* Pequeño detalle estético */
+  border-radius: 5px;
 }
 
 .menu .active {
   color: aqua;
 }
 
-.toggle-menu,
+/* --- FIX 3: Control de iconos del menú --- */
+.toggle-menu {
+  display: none; /* Oculto en escritorio */
+}
+
 .info-content__subtitle,
 .info-content .sotial-networks {
   display: none;
 }
 
+/* --- FIX 4: Contenedor principal ajustado --- */
 .main {
   margin: 0 auto;
-  width: 92%; /* Ajustado a % */
+  width: 90%; /* Margen de seguridad lateral */
+  max-width: 1200px; /* Para que no se estire infinito en pantallas 4k */
   min-height: 80vh;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
   gap: 2em;
+  padding-bottom: 2em;
 }
 
 h1 {
-  font-size: clamp(2rem, 5vw, 4rem); /* Tipografía fluida mejorada */
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.2; /* Mejor espaciado entre líneas */
 }
 
 .info-content span {
@@ -92,27 +108,28 @@ h1 {
 
 .download-cv,
 .project-details-button {
-  padding: 10px 20px;
+  padding: 12px 24px;
   background-color: aqua;
   border: none;
-  border-radius: 20px;
-  margin-top: 10px;
+  border-radius: 50px; /* Bordes más redondos estilo moderno */
+  margin-top: 20px;
   cursor: pointer;
-  box-shadow: 1px 3px 11px -5px rgba(102, 231, 200, 0.69);
+  box-shadow: 0px 4px 15px rgba(8, 124, 178, 0.4);
   color: #191c32;
   font-weight: bold;
+  font-size: 1rem;
+  transition: transform 0.2s;
 }
 
 .download-cv:hover {
-  background-color: azure;
-  box-shadow: none;
+  transform: scale(1.05);
+  background-color: #fff;
 }
 
 .main img {
-  border: 7px solid transparent;
+  border: 4px solid transparent; /* Borde más fino */
   width: 100%;
   height: auto;
-  min-height: 300px;
   object-fit: contain;
   animation: animate-border 5s linear infinite;
 }
@@ -125,11 +142,12 @@ h1 {
   100% { border-color: #230a51; }
 }
 
+/* SECCIONES SECUNDARIAS */
 .about {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   width: 100%;
-  background-color: #fff; /* Fondo blanco para sección about si se desea, o quitar */
+  background-color: #fff;
 }
 
 .about img {
@@ -137,68 +155,45 @@ h1 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  margin: 0;
 }
 
 .about-info {
   grid-column: 5/10;
-  padding: 5% 10%;
-  width: 100%;
-  text-align: justify;
-  color: #191c32; /* Texto oscuro para leer sobre fondo claro */
-}
-
-.about-info h2 {
-  font-size: 2em;
+  padding: 5% 8%;
   color: #191c32;
 }
 
-.divider, .divider2 {
+.divider {
   height: 4px;
-  width: 100px;
+  width: 80px;
   background-color: aqua;
-  margin-top: 5px;
-  margin-bottom: 2em;
+  margin: 10px 0 20px 0;
 }
 
-.about p {
-  margin-bottom: 1em;
-}
-
-/* SECCION PORTAFOLIO Y CONTACTO (Cyberpunk Style) */
+/* PORTAFOLIO Y CONTACTO */
 .portfolio,
 .contact-section {
   width: 100%;
   min-height: 100vh;
-  background-image: url(869923.gif); /* Fondo original recuperado */
+  background-image: url(869923.gif);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  color: #fff;
-  padding-bottom: 3em;
-}
-
-.portfolio-heading {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   padding: 3em 0;
+  color: #fff;
 }
 
 .portfolio-heading h2,
 .contact-heading h2 {
-  font-size: 2.5em;
-  color: #fff;
   text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 20px;
 }
 
 .portfolio .container {
   width: 90%;
   margin: 0 auto;
   display: flex;
-  align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   gap: 2em;
@@ -206,164 +201,88 @@ h1 {
 
 .card {
   width: 300px;
-  background-color: rgba(43, 48, 88, 0.9); /* Transparencia para ver el fondo */
-  margin: 1em;
+  background-color: rgba(43, 48, 88, 0.95);
   border-radius: 10px;
   overflow: hidden;
-  transition: transform 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
+  margin-bottom: 1em;
 }
 
 .card__img {
   width: 100%;
   height: 180px;
-  overflow: hidden;
 }
-
 .card__img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.card__title {
-  padding: 20px;
-}
+.card__title { padding: 15px; text-align: center; }
+.card__proyect-links { display: flex; justify-content: center; gap: 20px; padding-bottom: 15px; }
+.card__proyect-links a, .button-content a { color: #fff; text-decoration: none; }
+.card__proyect-links i { font-size: 1.5em; }
+.button-content { text-align: center; padding-bottom: 20px; }
 
-.card__proyect-links {
-  display: flex;
-  justify-content: space-evenly;
-  padding-bottom: 15px;
-}
-
-.card__proyect-links a {
-  color: #fff;
-  text-decoration: none;
-}
-
-.card__proyect-links i {
-  font-size: 1.5em;
-}
-
-.button-content {
-  display: flex;
-  justify-content: center;
-  margin: 1em;
-}
-
-.project-details-button a {
-  text-decoration: none;
-  color: #191c32;
-}
-
-/* SECCION CONTACTO */
-.contact-section {
-  background-image: url(7.gif); /* Fondo original recuperado */
-}
-
-input::placeholder,
-textarea::placeholder {
-  color: rgba(255, 255, 255, 0.8);
-  font-weight: bold;
-}
-
-.container-contact {
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  min-height: 60vh;
-}
+/* CONTACTO */
+.contact-section { background-image: url(7.gif); }
+.container-contact { display: flex; justify-content: center; width: 100%; padding: 2em 1em; }
 
 .form-group {
-  display: flex;
-  flex-direction: column;
   width: 100%;
-  max-width: 500px;
-  background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para legibilidad */
+  max-width: 450px;
+  background: rgba(0, 0, 0, 0.6);
   padding: 2em;
   border-radius: 15px;
 }
 
-.form-group textarea {
-  height: 150px;
-  padding: 1em;
-  background: none;
-  border: 1px solid #fff;
-  color: #fff;
-  resize: none;
-  margin-bottom: 1em;
-}
-
-.form-group .input {
+.form-group input, .form-group textarea {
+  width: 100%;
   padding: 10px;
-  margin-bottom: 1em;
-  background: none;
+  margin-bottom: 15px;
+  background: transparent;
   border: none;
   border-bottom: 1px solid #fff;
   color: #fff;
+  font-family: inherit;
 }
 
 .form-group .btn-submit {
-  padding: 12px 20px;
-  border-radius: 20px;
+  width: 100%;
+  padding: 12px;
+  background: aqua;
   border: none;
-  text-transform: uppercase;
-  background-color: aqua;
-  color: #191c32;
+  border-radius: 25px;
   font-weight: bold;
   cursor: pointer;
-  align-self: center;
-  width: 100%;
 }
 
 .footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+  text-align: center;
   padding: 2em;
   background-color: aqua;
   color: #191c32;
-}
-
-.footer-content h2 {
-  font-size: 2em;
-  text-align: center;
-}
-
-.footer-content h5 {
-  font-size: 1.2em;
-  text-align: center;
-  margin-top: 10px;
 }
 
 .sotial-networks {
   display: flex;
   justify-content: center;
-  gap: 20px;
-  width: 100%;
+  gap: 1.5em;
   margin-top: 1em;
 }
 
-.sotial-networks i {
-  font-size: 2em;
-  color: #191c32;
-}
-
+.sotial-networks i { font-size: 2em; color: #191c32; }
 
 /* ---------------------------------------------------- */
-/* RESPONSIVE DESIGN - FIX (Mobile First Approach)      */
+/* RESPONSIVE MÓVIL (Aquí está la magia)                */
 /* ---------------------------------------------------- */
-
 @media screen and (max-width: 968px) {
   
-  /* Menú Hamburguesa */
+  /* Arreglo Navbar */
+  .navbar {
+    padding: 1rem 5%; /* Padding lateral seguro */
+  }
+
+  /* Menú Full Screen */
   .menu {
     flex-direction: column;
     justify-content: center;
@@ -379,14 +298,11 @@ textarea::placeholder {
     transition: transform 0.4s ease-in-out;
   }
 
-  .show-menu {
-    transform: translateX(0%);
-  }
+  .show-menu { transform: translateX(0%); }
 
-  .menu li {
-    margin: 1.5em 0;
-  }
+  .menu li { margin: 1.5em 0; }
 
+  /* --- FIX 5: Icono Hamburguesa Correcto --- */
   .toggle-menu {
     display: block;
     cursor: pointer;
@@ -397,64 +313,38 @@ textarea::placeholder {
     font-size: 2em;
     color: #fff;
   }
+  
+  /* Ocultamos la X por defecto usando CSS, JS la activará después */
+  #toggle_close {
+    display: none; 
+  }
 
-  /* Ajuste Layout Principal */
+  /* Layout Vertical */
   .main {
     display: flex;
-    flex-direction: column-reverse; /* Imagen arriba, texto abajo en código, visualmente invertido */
-    padding-top: 80px;
-    height: auto;
+    flex-direction: column-reverse;
+    padding-top: 80px; /* Espacio para que el header no tape */
+    width: 90%; /* Ancho seguro */
     text-align: center;
   }
 
-  .info-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 2em;
-  }
-
   .main img {
-    max-width: 80%;
-    height: auto;
-    margin-bottom: 20px;
+    max-width: 100%;
+    margin-bottom: 30px;
   }
 
-  /* Sección About */
-  .about {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .about img {
-    height: 300px;
-  }
-
-  .about-info {
-    padding: 2em;
-  }
-
-  /* Ajustes Generales */
-  .portfolio, .contact-section {
-    background-attachment: scroll; /* Mejor rendimiento en móviles */
-    padding-bottom: 2em;
-  }
-
-  .container-contact {
-    margin: 0;
-    padding: 1em;
-  }
-
-  .form-group {
+  .info-content {
     width: 100%;
+    padding: 0; /* Quitamos paddings raros */
   }
 
-  /* Ocultar elementos innecesarios en móvil si se desea */
-  .download-cv.specific-button {
-    display: none;
-  }
-  
-  .sotial-networks {
-      display: flex; /* Asegurar que se vean en el footer móvil */
+  /* Ajuste de About */
+  .about { display: flex; flex-direction: column; }
+  .about img { height: 250px; }
+  .about-info { padding: 2em 1.5em; }
+
+  /* Ajuste Fondos Móvil */
+  .portfolio, .contact-section, .wrapper {
+    background-attachment: scroll; /* Evita glitches en móviles */
   }
 }
