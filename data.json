@@ -1,69 +1,61 @@
 {
   "profile": {
-    "name": "Claudio González",
-    "title": "Cloud Architect & Infrastructure"",
-    "label": "Consultor Semi-Senior",
-    "summary": "Especialista en entornos multinube (Huawei Cloud, AWS, Azure). Transformo necesidades de negocio en arquitecturas resilientes, con foco en Automatización (IaC), Observabilidad y Seguridad.",
-    "cvLink": "https://drive.google.com/uc?export=download&id=1j8KK-t98fDUbf_Kd8zEBz75Q9jCFThfW",
+    "name": "Claudio",
+    "lastname": "González",
+    "greeting": "Hello! I'm",
+    "role": "Consultor Cloud & Arquitecto",
+    "cv_link": "https://drive.google.com/uc?export=download&id=1j8KK-t98fDUbf_Kd8zEBz75Q9jCFThfW",
+    "summary_p1": "Consultor de Infraestructura Cloud Semi-Senior especializado en entornos multinube (Huawei Cloud, AWS, Azure). Apasionado por la arquitectura de soluciones, la automatización IT (IaC) y la gestión crítica de servicios SAP HANA.",
+    "summary_p2": "En mi portafolio encontrarás proyectos de <span style='color:aqua;'>migración a la nube, re-architecting y automatización</span>, que reflejan mi capacidad para diseñar infraestructuras resilientes y escalables.",
     "social": {
       "linkedin": "https://www.linkedin.com/in/claudio-gonzalez-2ab36b227/",
       "github": "https://github.com/Claudionee"
     }
   },
   "about": {
-    "description": "Lidero y administro proyectos en entornos híbridos. Mi enfoque técnico abarca desde la implementación de auditoría centralizada (Graylog) hasta la automatización con PowerShell y Python. Gestiono entornos críticos SAP HANA resolviendo problemáticas de alto nivel.",
+    "p1": "Actualmente me desempeño como <strong>Consultor de Infraestructura Cloud Semi-Senior en SEIDOR</strong>. Lidero y administro proyectos en entornos multinube, principalmente Huawei Cloud y AWS.",
+    "p2": "Gestiono entornos críticos <strong>SAP HANA</strong> para grandes clientes corporativos. Mi objetivo es seguir evolucionando hacia DevOps, Observabilidad Avanzada y Seguridad.",
     "certifications": [
       "Huawei Cloud: HCCDP - Solution Architectures (2025-2028)",
-      "Huawei Cloud: HCCDP - Cloud Migration",
+      "Huawei Cloud: HCCDP - Cloud Migration (Renovación)",
       "Huawei Cloud: HCCDA - Tech",
       "Microsoft Certified: Azure Fundamentals",
-      "Google Cloud Computing Foundations",
-      "Design Thinking Professional Certification (DTPC)"
+      "Google Cloud Computing Foundations"
     ],
     "stack": [
-      { "category": "Cloud Computing", "techs": "Huawei Cloud, AWS, Azure, Hybrid Cloud Design" },
-      { "category": "Infrastructure as Code", "techs": "Terraform, Ansible, CloudFormation" },
-      { "category": "Scripting & Dev", "techs": "Python (Boto3), PowerShell, Bash, JavaScript" },
-      { "category": "Systems & SAP", "techs": "SAP HANA Admin, RedHat, SUSE (SLES), Windows Server" },
-      { "category": "Observability", "techs": "Graylog, Zabbix, Grafana, CloudWatch" }
+      "<strong>Cloud:</strong> AWS, Huawei Cloud, Azure, Google Cloud.",
+      "<strong>Automatización:</strong> Terraform, Ansible, CI/CD.",
+      "<strong>Sistemas:</strong> SAP HANA, Linux (RedHat/SUSE), Windows.",
+      "<strong>Observabilidad:</strong> Graylog, Zabbix, Grafana."
     ]
   },
   "projects": [
     {
-      "title": "AD-QuickManager",
-      "subtitle": "Automation / PowerShell",
-      "tags": "PowerShell, Active Directory, Automation",
-      "image": "captura.jpg", 
-      "link": "https://github.com/Claudionee",
-      "btnText": "Ver Script",
-      "desc": "Herramienta CLI automatizada para la gestión masiva de usuarios RDS y Active Directory, reduciendo tiempos operativos en un 40%."
+      "title": "Portafolio Web",
+      "subtitle": "HTML5 - CSS3 - JS",
+      "tags": "Diseño Responsive",
+      "img": "captura.JPG",
+      "repo": "https://github.com/Claudionee/CV-WEB",
+      "icon": "fab fa-github",
+      "btnText": "Ver Repositorio"
     },
     {
-      "title": "SOC Dashboard IA",
-      "subtitle": "Security / Python",
-      "tags": "Python, Streamlit, SecOps",
-      "image": "r (1).jpg",
-      "link": "https://github.com/Claudionee",
-      "btnText": "Ver Demo",
-      "desc": "Panel de operaciones de seguridad (SOC) desarrollado en Python con Streamlit para visualización de amenazas en tiempo real."
-    },
-    {
-      "title": "Migración Cloud AWS",
-      "subtitle": "Re-architecting",
-      "tags": "AWS, EC2, DMS",
-      "image": "despues.jpg",
-      "link": "https://drive.google.com/drive/folders/1E1E4qX2Ie99SRPcF1aa0yQM_75nk6jGa?usp=sharing",
-      "btnText": "Ver Caso",
-      "desc": "Migración exitosa de infraestructura On-Premise a AWS aplicando estrategias de Re-hosting y Re-platforming."
+      "title": "Migración Cloud",
+      "subtitle": "On-Premise a AWS",
+      "tags": "Estrategia: Re-architecting",
+      "img": "Despues.jpg",
+      "repo": "https://drive.google.com/drive/folders/1E1E4qX2Ie99SRPcF1aa0yQM_75nk6jGa?usp=sharing",
+      "icon": "fab fa-aws",
+      "btnText": "Ver Documentación"
     },
     {
       "title": "Arquitectura HA",
-      "subtitle": "High Availability",
-      "tags": "AWS RDS, Auto Scaling",
-      "image": "arquitectura nube 3.jpg",
-      "link": "https://drive.google.com/drive/folders/1R2q7sbflS80coUhS6su0gfMa3_bBd5Fk?usp=sharing",
-      "btnText": "Ver Diseño",
-      "desc": "Diseño de arquitectura tolerante a fallos usando Multi-AZ RDS, Elastic File System y Balanceadores de Carga."
+      "subtitle": "Automatización & Escalar",
+      "tags": "RDS, EFS, EC2",
+      "img": "Arquitectura nube 3.jpg",
+      "repo": "https://drive.google.com/drive/folders/1R2q7sbflS80coUhS6su0gfMa3_bBd5Fk?usp=sharing",
+      "icon": "fab fa-aws",
+      "btnText": "Ver Arquitectura"
     }
   ]
 }
