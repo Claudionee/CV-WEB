@@ -1,0 +1,69 @@
+{
+  "profile": {
+    "name": "Claudio González",
+    "title": "Cloud Architect & Infrastructure"",
+    "label": "Consultor Semi-Senior",
+    "summary": "Especialista en entornos multinube (Huawei Cloud, AWS, Azure). Transformo necesidades de negocio en arquitecturas resilientes, con foco en Automatización (IaC), Observabilidad y Seguridad.",
+    "cvLink": "https://drive.google.com/uc?export=download&id=1j8KK-t98fDUbf_Kd8zEBz75Q9jCFThfW",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/claudio-gonzalez-2ab36b227/",
+      "github": "https://github.com/Claudionee"
+    }
+  },
+  "about": {
+    "description": "Lidero y administro proyectos en entornos híbridos. Mi enfoque técnico abarca desde la implementación de auditoría centralizada (Graylog) hasta la automatización con PowerShell y Python. Gestiono entornos críticos SAP HANA resolviendo problemáticas de alto nivel.",
+    "certifications": [
+      "Huawei Cloud: HCCDP - Solution Architectures (2025-2028)",
+      "Huawei Cloud: HCCDP - Cloud Migration",
+      "Huawei Cloud: HCCDA - Tech",
+      "Microsoft Certified: Azure Fundamentals",
+      "Google Cloud Computing Foundations",
+      "Design Thinking Professional Certification (DTPC)"
+    ],
+    "stack": [
+      { "category": "Cloud Computing", "techs": "Huawei Cloud, AWS, Azure, Hybrid Cloud Design" },
+      { "category": "Infrastructure as Code", "techs": "Terraform, Ansible, CloudFormation" },
+      { "category": "Scripting & Dev", "techs": "Python (Boto3), PowerShell, Bash, JavaScript" },
+      { "category": "Systems & SAP", "techs": "SAP HANA Admin, RedHat, SUSE (SLES), Windows Server" },
+      { "category": "Observability", "techs": "Graylog, Zabbix, Grafana, CloudWatch" }
+    ]
+  },
+  "projects": [
+    {
+      "title": "AD-QuickManager",
+      "subtitle": "Automation / PowerShell",
+      "tags": "PowerShell, Active Directory, Automation",
+      "image": "captura.jpg", 
+      "link": "https://github.com/Claudionee",
+      "btnText": "Ver Script",
+      "desc": "Herramienta CLI automatizada para la gestión masiva de usuarios RDS y Active Directory, reduciendo tiempos operativos en un 40%."
+    },
+    {
+      "title": "SOC Dashboard IA",
+      "subtitle": "Security / Python",
+      "tags": "Python, Streamlit, SecOps",
+      "image": "r (1).jpg",
+      "link": "https://github.com/Claudionee",
+      "btnText": "Ver Demo",
+      "desc": "Panel de operaciones de seguridad (SOC) desarrollado en Python con Streamlit para visualización de amenazas en tiempo real."
+    },
+    {
+      "title": "Migración Cloud AWS",
+      "subtitle": "Re-architecting",
+      "tags": "AWS, EC2, DMS",
+      "image": "despues.jpg",
+      "link": "https://drive.google.com/drive/folders/1E1E4qX2Ie99SRPcF1aa0yQM_75nk6jGa?usp=sharing",
+      "btnText": "Ver Caso",
+      "desc": "Migración exitosa de infraestructura On-Premise a AWS aplicando estrategias de Re-hosting y Re-platforming."
+    },
+    {
+      "title": "Arquitectura HA",
+      "subtitle": "High Availability",
+      "tags": "AWS RDS, Auto Scaling",
+      "image": "arquitectura nube 3.jpg",
+      "link": "https://drive.google.com/drive/folders/1R2q7sbflS80coUhS6su0gfMa3_bBd5Fk?usp=sharing",
+      "btnText": "Ver Diseño",
+      "desc": "Diseño de arquitectura tolerante a fallos usando Multi-AZ RDS, Elastic File System y Balanceadores de Carga."
+    }
+  ]
+}
