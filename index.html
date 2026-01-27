@@ -1,116 +1,421 @@
 <!DOCTYPE html>
+
 <html lang="es">
+
 <head>
+
   <meta charset="UTF-8">
+
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Portafolio | Claudio González</title>
+
   <link rel="stylesheet" href="diseño.css">
+
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
+
 </head>
+
 <body>
+
   <div class="wrapper">
+
     <header>
+
       <nav id="home" class="navbar">
+
         <div class="brand">
+
           <h2 style="font-weight:bold"> <\ Claudio<span>González /> </span></h2>
+
         </div>
+
         <ul class="menu" id="menu">
-          <li><a href="#" class="active">Home</a></li>
+
+          <li><a href="#"  class="active">Home</a></li>
+
           <li id="About-link"><a href="#About">Sobre mí</a></li>
+
           <li id="portafolio"><a href="#portfolio">Portafolio</a></li>
+
           <li id="contacto-link"><a href="#contacto">Contacto</a></li>
+
         </ul>
+
         <div class="toggle-menu">
+
           <i class="fas fa-bars" id="toggle_open"></i>
+
           <i class="fas fa-close" id="toggle_close"></i>
+
         </div>
+
       </nav>
+
     </header>
 
+
+
     <main class="main">
+
       <div class="info-content">
-        <h1 style="margin-bottom: 10px"><span id="hero-greeting"></span> <span id="hero-name"></span></h1>
+
+        <h1 style="margin-bottom: 10px"><span>Hello! I'm</span> Claudio</h1>
+
+        <div class="sotial-networks">
+
+          <a href="https://www.linkedin.com/in/claudio-gonzalez-2ab36b227/" target="_blank" style="color: white;">
+
+            <i class="fab fa-linkedin"></i>
+
+          </a>
+
+        </div>
+
         
-        <div class="sotial-networks" id="social-container"></div>
-        
-        <p class="e" style="font-weight:bold; margin-bottom: 10px; font-size: 17px;" id="hero-summary-highlight"></p>
-        <p class="e" style="font-weight:bold; margin-bottom: 10px; font-size: 17px;" id="hero-summary-text"></p>
-        
+
+        <p class="e" style="font-weight:bold; margin-bottom: 10px; font-size: 17px;">
+
+          Consultor de Infraestructura Cloud Semi-Senior especializado en entornos multinube (Huawei Cloud, AWS, Azure). 
+
+          Apasionado por la arquitectura de soluciones, la automatización IT (IaC) y la gestión crítica de servicios SAP HANA.
+
+        </p>
+
+        <p class="e" style="font-weight:bold; margin-bottom: 10px; font-size: 17px;">
+
+          En mi portafolio encontrarás proyectos de <span style="color:aqua;">migración a la nube, re-architecting y automatización</span>, 
+
+          que reflejan mi capacidad para diseñar infraestructuras resilientes y escalables.
+
+        </p>
+
         <p class="e" style="font-weight:bold; font-size: 18px">Descarga mi CV actualizado 👇</p>
+
         
-        <a class="e" id="cv-download-btn" href="#">
+
+        <a class="e" href="https://drive.google.com/uc?export=download&id=1j8KK-t98fDUbf_Kd8zEBz75Q9jCFThfW">
+
           <button class="download-cv" style="font-weight: bold;">Descargar CV</button>
+
         </a>
 
+
+
       </div>
+
       <img src="pixel-jeff-galaxy-far-far-away.gif" alt="Pixel Art Space">
+
     </main>
+
   </div>
+
+
 
   <div class="about">
+
     <img id="mi-imagen" src="6.gif" alt="About Image">
+
     <div class="about-info">
+
       <h2 id="About">Perfil Profesional</h2>
+
       <div class="divider"></div>
+
       
-      <p style="font-weight:bold; margin-bottom: 1.5em;" id="about-p1"></p>
-      <p style="font-weight:bold; margin-bottom: 1.5em;" id="about-p2"></p>
+
+      <p style="font-weight:bold; margin-bottom: 1.5em;">
+
+        Actualmente me desempeño como <strong>Consultor de Infraestructura Cloud Semi-Senior en SEIDOR</strong>. 
+
+        Lidero y administro proyectos en entornos multinube, principalmente Huawei Cloud y AWS. 
+
+        Mi enfoque técnico abarca desde la implementación de soluciones de auditoría centralizada (Graylog) hasta la automatización de infraestructura como código (Terraform, Ansible).
+
+      </p>
+
+      <p style="font-weight:bold; margin-bottom: 1.5em;">
+
+        Gestiono entornos críticos <strong>SAP HANA</strong> para grandes clientes corporativos, resolviendo problemáticas de alto nivel en infraestructura y servicios cloud. 
+
+        Mi objetivo es seguir evolucionando hacia DevOps, Observabilidad Avanzada y Seguridad en entornos híbridos.
+
+      </p>
+
+
 
       <h3 style="color: #191c32; margin-top: 20px;">Certificaciones Profesionales:</h3>
-      <ul style="margin-bottom: 20px;" id="certifications-list"></ul>
+
+      <ul style="margin-bottom: 20px;">
+
+        <li style="font-weight:bold">Huawei Cloud: HCCDP - Solution Architectures (2025-2028)</li>
+
+        <li style="font-weight:bold">Huawei Cloud: HCCDP - Cloud Migration (Renovación)</li>
+
+        <li style="font-weight:bold">Huawei Cloud: HCCDA - Tech</li>
+
+        <li style="font-weight:bold">Microsoft Certified: Azure Fundamentals</li>
+
+        <li style="font-weight:bold">Google Cloud Computing Foundations</li>
+
+        <li style="font-weight:bold">Design Thinking Professional Certification (DTPC)</li>
+
+      </ul>
+
+
 
       <h3 style="color: #191c32;">Stack Tecnológico & Habilidades:</h3>
-      <ul id="skills-list"></ul>
+
+      <ul>
+
+        <li style="font-weight:bold"><strong>Cloud Computing:</strong> AWS, Huawei Cloud, Azure, Google Cloud. Diseño de soluciones híbridas y multinube.</li>
+
+        <li style="font-weight:bold"><strong>Automatización & DevOps:</strong> Terraform, Ansible, CI/CD, Pipelines.</li>
+
+        <li style="font-weight:bold"><strong>Contenedores & Orquestación:</strong> Docker, Kubernetes (CCE), VMware.</li>
+
+        <li style="font-weight:bold"><strong>Sistemas & Bases de Datos:</strong> SAP HANA, RedHat Linux, SUSE (SLES), MySQL, PostgreSQL, Windows Server.</li>
+
+        <li style="font-weight:bold"><strong>Observabilidad & Seguridad:</strong> Zabbix, Grafana, Graylog, Pandora FMS. IAM, Firewall, SSL/TLS.</li>
+
+      </ul>
+
       
+
       <p></p>
+
       <button class="download-cv" style="font-weight:bold; margin-top: 20px;">
+
         <a href="#home" style="text-decoration: none; color: inherit;">Volver al inicio</a>
+
       </button>
+
     </div>
+
   </div>
+
+
 
   <div id="portfolio" class="portfolio">
+
     <div class="portfolio-heading">
+
       <h2 id="portfolio">Proyectos Destacados</h2>
+
       <div class="divider"></div>
+
     </div>
-    <div class="container" id="projects-container"></div>
+
+    <div class="container">
+
+      <div class="card">
+
+        <div class="card__img">
+
+          <img style="margin-top: 6px;" src="captura.JPG" alt="Portafolio Web">
+
+        </div>
+
+        <div class="card__title">
+
+          <h2 style="text-align: center;">Portafolio Web</h2>
+
+          <h3 style="text-align: center;">HTML5 - CSS3 - JS</h3>
+
+          <h6 style="text-align: center;">Diseño Responsive & Pixel Art</h6>
+
+        </div>
+
+        <div class="card__proyect-links">
+
+          <a href="https://github.com/Claudionee/CV-WEB" target="_blank">
+
+            <i class="fab fa-github"></i>
+
+          </a>
+
+        </div>
+
+        <div class="button-content">
+
+          <button class="project-details-button">
+
+            <a href="https://github.com/Claudionee/CV-WEB" target="_blank">Ver Repositorio</a>
+
+          </button>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="card">
+
+        <div class="card__img">
+
+          <img style="margin-top: 6px;" src="Despues.jpg" alt="Migración AWS">
+
+        </div>
+
+        <div class="card__title">
+
+          <h2 style="text-align: center;">Migración Cloud</h2>
+
+          <h3 style="text-align: center;">On-Premise a AWS</h3>
+
+          <h6 style="text-align: center;">Estrategia: Re-architecting</h6>
+
+        </div>
+
+        <div class="card__proyect-links">
+
+          <a href="#" target="_blank">
+
+            <i class="fab fa-aws"></i>
+
+          </a>
+
+        </div>
+
+        <div class="button-content">
+
+          <button class="project-details-button">
+
+            <a href="https://drive.google.com/drive/folders/1E1E4qX2Ie99SRPcF1aa0yQM_75nk6jGa?usp=sharing" target="_blank">Ver Documentación</a>
+
+          </button>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="card">
+
+        <div class="card__img">
+
+          <img style="margin-top: 6px;" src="Arquitectura nube 3.jpg" alt="Automatización AWS">
+
+        </div>
+
+        <div class="card__title">
+
+          <h2 style="text-align: center;">Arquitectura HA</h2>
+
+          <h3 style="text-align: center;">Automatización & Escalar</h3>
+
+          <h6 style="text-align: center;">RDS, EFS, EC2, CloudWatch</h6>
+
+        </div>
+
+        <div class="card__proyect-links">
+
+          <a href="#" target="_blank">
+
+            <i class="fab fa-aws"></i>
+
+          </a>
+
+        </div>
+
+        <div class="button-content">
+
+          <button class="project-details-button">
+
+            <a href="https://drive.google.com/drive/folders/1R2q7sbflS80coUhS6su0gfMa3_bBd5Fk?usp=sharing" target="_blank">Ver Arquitectura</a>
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
+
+
 
   <div id="contacto" class="contact-section">
+
     <div class="contact-heading">
+
       <h2>Contacto</h2>
+
       <div class="divider2"></div>
+
     </div>
+
     <div class="container-contact">
+
       <div class="contact-form">
+
         <h2 style="text-align: center;">
+
           <span style="display:inline-block; background-color:aqua; color:rgb(0, 0, 0); padding:10px 20px; border-radius: 50px;">
+
             Hablemos de Cloud <i class="fas fa-cloud"></i>
+
           </span>
+
         </h2>
+
         <form class="form-group" method="POST" data-netlify="true">
+
           <input style="text-align: center;" type="text" placeholder="Nombre" class="input" required>
+
           <input style="text-align: center;" type="email" placeholder="E-mail" class="input" required>
+
           <textarea style="text-align: center;" name="message" placeholder="¿En qué proyecto estás trabajando?" required></textarea>
+
           <button type="submit" class="btn-submit">Enviar Mensaje</button>          
+
         </form>
+
       </div>
+
     </div>
+
   </div>
 
+
+
   <footer class="footer"> 
+
     <div class="footer-content">
+
       <div style="text-align: center;">
-        <h2 id="footer-name"></h2> <h5 id="footer-role"></h5> <div class="social-networks" style="text-align: center;" id="footer-social">
-           </div>
+
+        <h2>Claudio González Gaete</h2>
+
+        <h5>Consultor Cloud Semi-Senior & Arquitecto de Soluciones</h5>
+
+        <div class="social-networks" style="text-align: center;">
+
+          <a href="https://www.linkedin.com/in/claudio-gonzalez-2ab36b227/" target="_blank">
+
+            <i class="fab fa-linkedin" style="display: inline-block; vertical-align: middle; font-size: 30px; margin-top: 20px;"></i>
+
+          </a>
+
+        </div>
+
       </div>
+
     </div>    
+
   </footer>
+
   
+
   <script src="script.js"></script>
+
 </body>
+
 </html>
 
 
