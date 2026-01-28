@@ -103,6 +103,7 @@
       <div class="divider"></div>
     </div>
     <div class="container">
+      
       <div class="card">
         <div class="card__img">
           <img style="margin-top: 6px;" src="captura.JPG" alt="Portafolio Web">
@@ -118,9 +119,7 @@
           </a>
         </div>
         <div class="button-content">
-          <button class="project-details-button">
-            <a href="https://github.com/Claudionee/CV-WEB" target="_blank">Ver Repositorio</a>
-          </button>
+          <a class="project-details-button" href="https://github.com/Claudionee/CV-WEB" target="_blank">Ver Repositorio</a>
         </div>
       </div>
 
@@ -139,9 +138,7 @@
           </a>
         </div>
         <div class="button-content">
-          <button class="project-details-button">
-            <a href="https://drive.google.com/drive/folders/1E1E4qX2Ie99SRPcF1aa0yQM_75nk6jGa?usp=sharing" target="_blank">Ver Documentación</a>
-          </button>
+          <a class="project-details-button" href="https://drive.google.com/drive/folders/1E1E4qX2Ie99SRPcF1aa0yQM_75nk6jGa?usp=sharing" target="_blank">Ver Documentación</a>
         </div>
       </div>
 
@@ -160,9 +157,7 @@
           </a>
         </div>
         <div class="button-content">
-          <button class="project-details-button">
-            <a href="https://drive.google.com/drive/folders/1R2q7sbflS80coUhS6su0gfMa3_bBd5Fk?usp=sharing" target="_blank">Ver Arquitectura</a>
-          </button>
+          <a class="project-details-button" href="https://drive.google.com/drive/folders/1R2q7sbflS80coUhS6su0gfMa3_bBd5Fk?usp=sharing" target="_blank">Ver Arquitectura</a>
         </div>
       </div>
     </div>
@@ -180,12 +175,14 @@
             Hablemos de Cloud <i class="fas fa-cloud"></i>
           </span>
         </h2>
-        <form class="form-group" method="POST" data-netlify="true">
-          <input style="text-align: center;" type="text" placeholder="Nombre" class="input" required>
-          <input style="text-align: center;" type="email" placeholder="E-mail" class="input" required>
+        
+        <form class="form-group" action="https://formspree.io/f/TU_CODIGO_AQUI" method="POST">
+          <input style="text-align: center;" type="text" name="nombre" placeholder="Nombre" class="input" required>
+          <input style="text-align: center;" type="email" name="email" placeholder="E-mail" class="input" required>
           <textarea style="text-align: center;" name="message" placeholder="¿En qué proyecto estás trabajando?" required></textarea>
           <button type="submit" class="btn-submit">Enviar Mensaje</button>          
         </form>
+
       </div>
     </div>
   </div>
@@ -207,4 +204,5 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
