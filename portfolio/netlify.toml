@@ -1,0 +1,41 @@
+# =====================================================
+# netlify.toml · Portfolio Claudio González
+# =====================================================
+
+[build]
+  publish = "."
+
+# ---------- Headers de seguridad y performance ----------
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+
+# ---------- Cache del CSS ----------
+[[headers]]
+  for = "/styles.css"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+# ---------- URLs limpias (redirects) ----------
+# /proyectos → case-studies.html
+[[redirects]]
+  from = "/proyectos"
+  to   = "/case-studies.html"
+  status = 200
+
+# /case-studies → case-studies.html (sin extensión)
+[[redirects]]
+  from = "/case-studies"
+  to   = "/case-studies.html"
+  status = 200
+
+# /cv → el PDF (si lo subes después)
+# [[redirects]]
+#   from = "/cv"
+#   to   = "/Claudio.pdf"
+#   status = 200

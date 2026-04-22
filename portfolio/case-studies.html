@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Case Studies · Claudio González — Cloud Architect</title>
+<meta name="description" content="Case studies reales de arquitectura Multi-Cloud, migraciones SAP HANA, HA/DR e IaC por Claudio González Gaete." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500;700&family=Public+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-dot"></span>
+      ClaudioGonzález <span>/ case-studies</span>
+    </a>
+    <div class="topnav-links">
+      <a href="index.html">inicio</a>
+      <a href="index.html#stack">stack</a>
+      <a href="index.html#experiencia">experiencia</a>
+      <a href="case-studies.html" class="active">proyectos</a>
+      <a href="#contacto">contacto</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-eyebrow">Case Studies · 2023 — 2026</div>
+  <h1 class="hero-title">
+    Arquitecturas <em>Multi-Cloud</em><br/>
+    resilientes, auditables<br/>
+    y automatizadas.
+  </h1>
+  <p class="hero-desc">
+    Selección de proyectos reales en entornos productivos sobre Huawei Cloud y AWS,
+    orientados a continuidad operativa de sistemas SAP HANA críticos, alta disponibilidad,
+    recuperación ante desastres, observabilidad centralizada e infraestructura como código.
+    Todos los casos han sido anonimizados preservando decisiones técnicas y resultados.
+  </p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Rol</span>
+      <span class="hero-meta-value">Cloud Architect / Semi-Senior</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Escala</span>
+      <span class="hero-meta-value">400+ servidores · 120+ clientes</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Clouds</span>
+      <span class="hero-meta-value">Huawei · AWS · Azure · GCP</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Foco</span>
+      <span class="hero-meta-value">HA/DR · Migraciones · IaC</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TOC ============ -->
+<section class="section" style="padding-top: 0; border-top: none;">
+  <div class="section-label">Índice de proyectos</div>
+  <ul class="toc-list">
+    <li class="toc-item"><a href="#case-01"><span class="toc-num">01</span><span class="toc-text">Plataforma centralizada de auditoría de logs · Graylog</span></a></li>
+    <li class="toc-item"><a href="#case-02"><span class="toc-num">02</span><span class="toc-text">Migración SAP HANA · On-Premise → Huawei Cloud</span></a></li>
+    <li class="toc-item"><a href="#case-03"><span class="toc-num">03</span><span class="toc-text">Arquitectura High-Availability en AWS</span></a></li>
+    <li class="toc-item"><a href="#case-04"><span class="toc-num">04</span><span class="toc-text">Framework IaC · Terraform + Ansible Multi-Cloud</span></a></li>
+    <li class="toc-item"><a href="#case-05"><span class="toc-num">05</span><span class="toc-text">Estrategia Backup &amp; Disaster Recovery Multi-Cloud</span></a></li>
+  </ul>
+</section>
+
+<!-- ============ CASE STUDIES ============ -->
+<section style="max-width: var(--max-w); margin: 0 auto; padding: 0 32px 120px;">
+
+  <!-- ===== CASE 01 ===== -->
+  <article class="case" id="case-01">
+    <div class="case-number">01</div>
+    <div class="case-body">
+      <div class="case-eyebrow"><span></span>Observabilidad · Seguridad · Multi-Tenant</div>
+      <h2 class="case-title">Plataforma centralizada de auditoría y monitoreo de logs</h2>
+      <p class="case-subtitle">
+        Implementación interna de Graylog como solución unificada para la auditoría de accesos
+        y monitoreo de eventos en una cartera de clientes corporativos distribuidos en entornos
+        híbridos Huawei Cloud y AWS.
+      </p>
+
+      <div class="case-tags">
+        <span class="tag">Huawei Cloud</span>
+        <span class="tag">AWS</span>
+        <span class="tag">Linux</span>
+        <span class="tag">Compliance</span>
+        <span class="tag">SIEM-ready</span>
+      </div>
+
+      <div class="case-block">
+        <div class="case-block-label">Contexto</div>
+        <p>
+          La operación gestionaba más de 400 servidores repartidos en múltiples nubes y clientes,
+          con logs dispersos en cada sistema y sin un punto único de auditoría. Las investigaciones
+          de incidentes requerían accesos SSH manuales servidor por servidor, y no existía capacidad
+          de detección proactiva de accesos anómalos ni trazabilidad centralizada para auditorías.
+        </p>
+      </div>
+
+      <div class="case-block">
+        <div class="case-block-label">Enfoque técnico</div>
+        <p>
+          Se diseñó una plataforma Graylog en alta disponibilidad con ingesta vía Syslog, GELF y
+          filebeats. Separación lógica por cliente mediante streams y permisos granulares,
+          dashboards por dominio de servicio y pipelines de enriquecimiento para normalizar eventos
+          heterogéneos (Linux, Windows, aplicaciones SAP, firewalls).
+        </p>
+      </div>
+
+      <div class="case-block">
+        <div class="case-block-label">Arquitectura de referencia</div>
+        <div class="arch">
+          <div class="arch-layer"><strong>// fuentes de eventos</strong><small>Linux SUSE/RedHat · Windows Server · SAP Business One · FortiGate · aplicaciones corporativas</small></div>
+          <div class="arch-arrow">▼ syslog / gelf / beats</div>
+          <div class="arch-layer"><strong>// capa de ingesta</strong><small>Graylog inputs (TCP/UDP 514, GELF 12201) + pipelines de parsing y enriquecimiento</small></div>
+          <div class="arch-arrow">▼</div>
+          <div class="arch-layer"><strong>// capa de procesamiento</strong><small>nodos Graylog en HA · backend OpenSearch/Elasticsearch · MongoDB para metadatos</small></div>
+          <div class="arch-arrow">▼</div>
+          <div class="arch-layer"><strong>// capa de consumo</strong><small>streams por cliente · dashboards por dominio · alertas vía email/Teams · exportación a SIEM externo</small></div>
+        </div>
+      </div>
+
+      <div class="case-block">
+        <div class="case-block-label">Stack</div>
+        <div class="stack">
+          <span class="chip accent">Graylog</span>
+          <span class="chip">OpenSearch</span>
+          <span class="chip">MongoDB</span>
+          <span class="chip">Syslog</span>
+          <span class="chip">GELF</span>
+          <span class="chip">Filebeat</span>
+          <span class="chip">Linux</span>
+          <span class="chip">Ansible</span>
+        </div>
+      </div>
+
+      <div class="case-block">
+        <div class="case-block-label">Decisiones clave</div>
+        <ul class="bullets">
+          <li><strong>Multi-tenancy por streams</strong> en lugar de instancias separadas: menor costo de mantenimiento y rollouts rápidos.</li>
+          <li><strong>Pipelines de normalización</strong> para convertir eventos heterogéneos en un esquema común, habilitando correlación cross-cliente.</li>
+          <li><strong>Retención por capas</strong> (hot / warm / archive) alineada con obligaciones de auditoría y costo de almacenamiento.</li>
+          <li><strong>Ansible como vehículo de despliegue</strong> de los agentes en flota, evitando configuración manual por host.</li>
+        </ul>
+      </div>
+
+      <div class="case-block">
+        <div class="case-block-label">Resultados</div>
+        <div class="results">
+          <div class="result"><div class="result-value">1</div><div class="result-label">Punto único de auditoría para toda la flota</div></div>
+          <div class="result"><div class="result-value">↓</div><div class="result-label">Reducción drástica del tiempo de investigación de incidentes</div></div>
+          <div class="result"><div class="result-value">24/7</div><div class="result-label">Alertas proactivas ante accesos o patrones anómalos</div></div>
+          <div class="result"><div class="result-value">✓</div><div class="result-label">Trazabilidad lista para auditorías externas</div></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ===== CASE 02 ===== -->
+  <article class="case" id="case-02">
+    <div class="case-number">02</div>
+    <div class="case-body">
+      <div class="case-eyebrow"><span></span>Migración Multi-Cloud · SAP HANA · 6R</div>
+      <h2 class="case-title">Migración de SAP HANA desde On-Premise hacia Huawei Cloud</h2>
+      <p class="case-subtitle">
+        Diseño y ejecución de la migración completa de entornos SAP Business One sobre HANA
+        desde infraestructura on-premise hacia una landing zone en Huawei Cloud, aplicando
+        metodología 6R y minimizando la ventana de cutover.
+      </p>
+
+      <div class="case-tags">
+        <span class="tag">SAP HANA</span>
+        <span class="tag">Huawei Cloud</span>
+        <span class="tag">SUSE SLES</span>
+        <span class="tag">6R methodology</span>
+        <span class="tag">Cutover planificado</span>
+      </div>
+
+      <div class="case-block">
+        <div class="case-block-label">Contexto</div>
+        <p>
+          El cliente operaba su ERP sobre SAP Business One con base de datos HANA en un datacenter
+          on-premise con hardware llegando a fin de vida útil. Se requería modernizar la plataforma
+          con mínima interrupción del negocio, preservar integridad transaccional y habilitar
+          escalabilidad elástica para cierres de mes y procesos de alto consumo.
+        </p>
+      </div>
+
+      <div class="case-block">
+        <div class="case-block-label">Enfoque técnico</div>
+        <p>
+          Fase de <em>Assessment</em> detallada sobre dependencias de red, integraciones y tamaño
+          real de memoria requerida por HANA. Estrategia combinada del framework 6R:
+          <strong>Rehost</strong> para servidores aplicativos, <strong>Replatform</strong> para la
+          capa de base de datos aprovechando instancias optimizadas en memoria de Huawei Cloud.
+          Migración por oleadas con entornos DEV/QA validados antes del cutover productivo.
+        </p>
+      </div>
+
+      <div class="case-block">
+        <div class="case-block-label">Arquitectura destino</div>
+        <div class="arch">
+          <div class="arch-layer"><strong>// landing zone</strong><small>VPC con subnets públicas/privadas · NAT Gateway · Security Groups segmentados por tier</small></div>
+          <div class="arch-arrow">▼</div>
+          <div class="arch-layer"><strong>// frontend / aplicativo</strong><small>ECS con SAP B1 sobre SLES · ELB frontal · certificados TLS gestionados</small></div>
+          <div class="arch-arrow">▼</div>
+          <div class="arch-layer"><strong>// base de datos</strong><small>ECS memory-optimized con SAP HANA · EVS de alto IOPS · snapshots periódicos</small></div>
+          <div class="arch-arrow">▼</div>
+          <div class="arch-layer"><strong>// respaldo y DR</strong><small>CBR para backups programados · OBS para retención de largo plazo · cross-region opcional</small></div>
+        </div>
+      </div>
+
+      <div class="case-block">
+        <div class="case-block-label">Stack</div>
+        <div class="stack">
+          <span class="chip accent">Huawei Cloud</span>
+          <span class="chip">SAP HANA</span>
+          <span class="chip">SAP Business One</span>
+          <span class="chip">SUSE SLES</span>
+          <span class="chip">SMS</span>
+          <span class="chip">DRS</span>
+          <span class="chip">OMS</span>
+          <span class="chip">CBR</span>
+          <span class="chip">OBS</span>
+          <span class="chip">Terraform</span>
+          <span class="chip">Ansible</span>
+        </div>
+      </div>
+
+      <div class="case-block">
+        <div class="case-block-label">Decisiones clave</div>
+        <ul class="bullets">
+          <li><strong>Replatform para HANA</strong>, no simple rehost: permitió aprovechar instancias memory-optimized y reducir latencias.</li>
+          <li><strong>Migración por oleadas</strong> con entornos DEV/QA en la nube antes del cutover productivo, reduciendo sorpresas el día D.</li>
+          <li><strong>SMS + DRS</strong> en paralelo para cómputo y base de datos, con replicación continua hasta minutos antes del corte.</li>
+          <li><strong>Hardening SUSE/SLES</strong> estandarizado vía Ansible para asegurar cumplimiento de políticas y notas SAP.</li>
+          <li><strong>Runbook de cutover</strong> ensayado en al menos dos simulacros previos al evento productivo.</li>
+        </ul>
+      </div>
+
+      <div class="case-block">
+        <div class="case-block-label">Resultados</div>
+        <div class="results">
+          <div class="result"><div class="result-value">RTO↓</div><div class="result-label">Ventana de corte contenida dentro de lo acordado con el negocio</div></div>
+          <div class="result"><div class="result-value">0</div><div class="result-label">Pérdida de datos transaccionales en el cutover</div></div>
+          <div class="result"><div class="result-value">CAPEX→OPEX</div><div class="result-label">Modelo de costos trasladado a pago por uso</div></div>
+          <div class="result"><div class="result-value">Elasticidad</div><div class="result-label">Capacidad de escalar para cierres de mes bajo demanda</div></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ===== CASE 03 ===== -->
+  <article class="case" id="case-03">
+    <div class="case-number">03</div>
+    <div class="case-body">
+      <div class="case-eyebrow"><span></span>High Availability · AWS · Multi-AZ</div>
+      <h2 class="case-title">Arquitectura High-Availability en AWS para aplicación crítica</h2>
+      <p class="case-subtitle">
+        Re-architecting de una aplicación mono-servidor hacia un diseño Multi-AZ con escalado
+        automático, almacenamiento compartido resiliente y recuperación transparente ante
+        fallos de infraestructura.
+      </p>
+
+      <div class="case-tags">
+        <span class="tag">AWS</span>
+        <span class="tag">Multi-AZ</span>
+        <span class="tag">Auto Scaling</span>
+        <span class="tag">Re-architecting</span>
+        <span class="tag">HA</span>
+      </div>
+
+      <div class="case-block">
+        <div class="case-block-label">Contexto</div>
+        <p>
+          La aplicación corría sobre un único EC2 con base de datos local, sin redundancia
+          ni capacidad de escalar. Una caída del host o de la zona de disponibilidad significaba
+          indisponibilidad total del servicio y recuperación manual. El objetivo fue alcanzar
+          alta disponibilidad y escalabilidad sin rediseñar la lógica de la aplicación.
+        </p>
+      </div>
+
+      <div class="case-block">
+        <div class="case-block-label">Enfoque técnico</div>
+        <p>
+          Desacople de cómputo, datos y almacenamiento: frontend detrás de un <strong>Application
+          Load Balancer</strong>, nodos EC2 dentro de un <strong>Auto Scaling Group</strong> repartidos
+          en múltiples AZ, base de datos migrada a <strong>RDS Multi-AZ</strong> y archivos
+          compartidos movidos a <strong>EFS</strong>. Todo monitoreado por CloudWatch con auto-recovery
+          y backups automatizados hacia S3 con políticas de ciclo de vida a Glacier.
+        </p>
+      </div>
+
+      <div class="case-block">
+        <div class="case-block-label">Arquitectura de referencia</div>
+        <div class="arch">
+          <div class="arch-layer"><strong>// route 53</strong><small>DNS con health checks · failover automático</small></div>
+          <div class="arch-arrow">▼</div>
+          <div class="arch-layer"><strong>// application load balancer</strong><small>distribución entre AZs · SSL terminado · WAF opcional</small></div>
+          <div class="arch-arrow">▼</div>
+          <div class="arch-layer"><strong>// auto scaling group</strong><small>EC2 en AZ-a y AZ-b · launch template versionado · escalado por CPU/memoria</small></div>
+          <div class="arch-arrow">▼</div>
+          <div class="arch-layer"><strong>// datos &amp; storage</strong><small>RDS Multi-AZ con réplicas de lectura · EFS compartido entre instancias · S3 + Glacier para backups</small></div>
+          <div class="arch-arrow">▼</div>
+          <div class="arch-layer"><strong>// observabilidad</strong><small>CloudWatch metrics y logs · alertas SNS · auto-recovery ante fallos de instancia</small></div>
+        </div>
+      </div>
+
+      <div class="case-block">
+        <div class="case-block-label">Stack</div>
+        <div class="stack">
+          <span class="chip accent">AWS</span>
+          <span class="chip">EC2</span>
+          <span class="chip">Auto Scaling</span>
+          <span class="chip">ALB</span>
+          <span class="chip">RDS Multi-AZ</span>
+          <span class="chip">EFS</span>
+          <span class="chip">S3 + Glacier</span>
+          <span class="chip">CloudWatch</span>
+          <span class="chip">Route 53</span>
+          <span class="chip">IAM</span>
+          <span class="chip">Terraform</span>
+        </div>
+      </div>
+
+      <div class="case-block">
+        <div class="case-block-label">Decisiones clave</div>
+        <ul class="bullets">
+          <li><strong>RDS Multi-AZ antes que réplicas manuales</strong>: reduce operaciones y garantiza failover automático.</li>
+          <li><strong>EFS en lugar de EBS compartido</strong>: habilita escritura concurrente desde múltiples instancias sin locks.</li>
+          <li><strong>Launch templates versionados</strong> para poder hacer rollback controlado de imágenes.</li>
+          <li><strong>Lifecycle policies</strong> S3 → Glacier para bajar el costo de retención larga sin perder compliance.</li>
+          <li><strong>Health checks a nivel de aplicación</strong>, no solo de red, para detectar degradación real del servicio.</li>
+        </ul>
+      </div>
+
+      <div class="case-block">
+        <div class="case-block-label">Resultados</div>
+        <div class="results">
+          <div class="result"><div class="result-value">HA</div><div class="result-label">Servicio resiliente ante caída de instancia o zona de disponibilidad</div></div>
+          <div class="result"><div class="result-value">Auto</div><div class="result-label">Escalado horizontal transparente según demanda</div></div>
+          <div class="result"><div class="result-value">0 SPOF</div><div class="result-label">Eliminación de puntos únicos de falla en el diseño</div></div>
+          <div class="result"><div class="result-value">Backups</div><div class="result-label">Retención automatizada con tiering hacia Glacier</div></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ===== CASE 04 ===== -->
+  <article class="case" id="case-04">
+    <div class="case-number">04</div>
+    <div class="case-body">
+      <div class="case-eyebrow"><span></span>Infrastructure as Code · Automatización</div>
+      <h2 class="case-title">Framework de IaC con Terraform y Ansible en entornos Multi-Cloud</h2>
+      <p class="case-subtitle">
+        Estandarización del aprovisionamiento de infraestructura y configuración de sistemas
+        operativos mediante un framework de IaC reutilizable, aplicable tanto a Huawei Cloud
+        como a AWS, con el objetivo de eliminar drift y reducir tiempos de despliegue.
+      </p>
+
+      <div class="case-tags">
+        <span class="tag">Terraform</span>
+        <span class="tag">Ansible</span>
+        <span class="tag">IaC</span>
+        <span class="tag">Multi-Cloud</span>
+        <span class="tag">DevOps</span>
+      </div>
+
+      <div class="case-block">
+        <div class="case-block-label">Contexto</div>
+        <p>
+          Los despliegues de infraestructura se realizaban mayoritariamente de forma manual desde
+          consolas cloud, lo que generaba inconsistencias entre entornos, ausencia de trazabilidad
+          de cambios, tiempos largos de aprovisionamiento y dependencia de conocimiento tácito
+          del operador.
+        </p>
+      </div>
+
+      <div class="case-block">
+        <div class="case-block-label">Enfoque técnico</div>
+        <p>
+          Diseño de un framework basado en dos capas: <strong>Terraform</strong> para todo lo que
+          es infraestructura declarativa (redes, cómputo, storage, IAM) y <strong>Ansible</strong>
+          para configuración idempotente de los sistemas operativos y aplicaciones sobre ellos
+          (hardening, instalación SAP, agentes de monitoreo, usuarios y permisos).
+        </p>
+      </div>
+
+      <div class="case-block">
+        <div class="case-block-label">Estructura del framework</div>
+        <div class="arch">
+          <div class="arch-layer"><strong>// terraform · módulos reutilizables</strong><small>vpc · compute · database · security · backup · observability · por cada provider</small></div>
+          <div class="arch-arrow">▼</div>
+          <div class="arch-layer"><strong>// terraform · composiciones por proyecto</strong><small>combinan módulos para cada cliente/entorno · variables por ambiente (dev/qa/prod)</small></div>
+          <div class="arch-arrow">▼</div>
+          <div class="arch-layer"><strong>// remote state</strong><small>OBS para proyectos Huawei · S3 para proyectos AWS · state locking habilitado</small></div>
+          <div class="arch-arrow">▼</div>
+          <div class="arch-layer"><strong>// ansible · roles</strong><small>hardening-linux · hardening-windows · sap-prereqs · monitoring-agent · patching</small></div>
+          <div class="arch-arrow">▼</div>
+          <div class="arch-layer"><strong>// orquestación</strong><small>pipelines con plan → apply · aprobaciones manuales en prod · Ansible Vault para secretos</small></div>
+        </div>
+      </div>
+
+      <div class="case-block">
+        <div class="case-block-label">Stack</div>
+        <div class="stack">
+          <span class="chip accent">Terraform</span>
+          <span class="chip accent">Ansible</span>
+          <span class="chip">Git</span>
+          <span class="chip">CI/CD</span>
+          <span class="chip">Huawei Cloud</span>
+          <span class="chip">AWS</span>
+          <span class="chip">Ansible Vault</span>
+          <span class="chip">Python</span>
+          <span class="chip">Bash</span>
+        </div>
+      </div>
+
+      <div class="case-block">
+        <div class="case-block-label">Decisiones clave</div>
+        <ul class="bullets">
+          <li><strong>Módulos pequeños y específicos</strong> por recurso, componibles según necesidad: más mantenibles que mega-módulos.</li>
+          <li><strong>Separación de infraestructura y configuración</strong>: Terraform crea la caja, Ansible configura lo que vive adentro.</li>
+          <li><strong>Remote state con locking</strong> obligatorio: evita corrupción de estado por ejecuciones concurrentes.</li>
+          <li><strong>Ansible Vault</strong> para todo lo que sea secreto, nunca credenciales en claro en el repo.</li>
+          <li><strong>Pipelines con plan previo y aprobación manual</strong> en producción: automatización sin perder control.</li>
+        </ul>
+      </div>
+
+      <div class="case-block">
+        <div class="case-block-label">Resultados</div>
+        <div class="results">
+          <div class="result"><div class="result-value">min</div><div class="result-label">Aprovisionamiento que antes tomaba días, ahora en minutos</div></div>
+          <div class="result"><div class="result-value">100%</div><div class="result-label">Entornos reproducibles bit a bit</div></div>
+          <div class="result"><div class="result-value">↓ drift</div><div class="result-label">Eliminación de inconsistencias entre ambientes</div></div>
+          <div class="result"><div class="result-value">Docs vivas</div><div class="result-label">La infraestructura es su propia documentación</div></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ===== CASE 05 ===== -->
+  <article class="case" id="case-05">
+    <div class="case-number">05</div>
+    <div class="case-body">
+      <div class="case-eyebrow"><span></span>Backup · DR · Continuidad Operativa</div>
+      <h2 class="case-title">Estrategia de Backup &amp; Disaster Recovery Multi-Cloud</h2>
+      <p class="case-subtitle">
+        Diseño y aplicación de una estrategia unificada de respaldo y recuperación ante desastres
+        para cargas críticas distribuidas en Huawei Cloud y AWS, combinando servicios nativos
+        y soluciones de terceros para cumplir RTO/RPO diferenciados por criticidad de workload.
+      </p>
+
+      <div class="case-tags">
+        <span class="tag">DR</span>
+        <span class="tag">Backup</span>
+        <span class="tag">Multi-Cloud</span>
+        <span class="tag">RTO/RPO</span>
+        <span class="tag">Runbook</span>
+      </div>
+
+      <div class="case-block">
+        <div class="case-block-label">Contexto</div>
+        <p>
+          Diversos clientes operaban sin una estrategia formal de DR: backups eran tomados
+          ad-hoc, sin pruebas periódicas de restauración ni documentación clara de los procedimientos
+          a ejecutar ante un incidente mayor. Recuperarse dependía del conocimiento individual
+          del ingeniero de turno.
+        </p>
+      </div>
+
+      <div class="case-block">
+        <div class="case-block-label">Enfoque técnico</div>
+        <p>
+          Clasificación de workloads por criticidad en 3 tiers, con objetivos RTO/RPO diferenciados
+          por tier. Aplicación del patrón <strong>3-2-1</strong> (tres copias, dos medios distintos,
+          una offsite) con servicios nativos de cada cloud y Acronis como capa adicional para
+          workloads específicos. Runbooks de DR documentados y ensayados.
+        </p>
+      </div>
+
+      <div class="case-block">
+        <div class="case-block-label">Modelo de tiering</div>
+        <div class="arch">
+          <div class="arch-layer"><strong>// tier 1 · misión crítica</strong><small>SAP HANA y core bancario/financiero · RPO minutos · RTO horas · replicación cross-region + snapshots frecuentes</small></div>
+          <div class="arch-layer"><strong>// tier 2 · importante</strong><small>aplicaciones de negocio · RPO horas · RTO medio día · backups diarios + retención mensual</small></div>
+          <div class="arch-layer"><strong>// tier 3 · estándar</strong><small>entornos no productivos · RPO diario · RTO best-effort · lifecycle hacia almacenamiento frío</small></div>
+        </div>
+      </div>
+
+      <div class="case-block">
+        <div class="case-block-label">Stack</div>
+        <div class="stack">
+          <span class="chip accent">Huawei CBR</span>
+          <span class="chip accent">AWS Backup</span>
+          <span class="chip">OBS</span>
+          <span class="chip">S3</span>
+          <span class="chip">Glacier</span>
+          <span class="chip">Acronis</span>
+          <span class="chip">Snapshots EVS/EBS</span>
+          <span class="chip">Bash</span>
+          <span class="chip">Python</span>
+        </div>
+      </div>
+
+      <div class="case-block">
+        <div class="case-block-label">Decisiones clave</div>
+        <ul class="bullets">
+          <li><strong>Tiering antes que "backup para todo igual"</strong>: permite invertir donde realmente importa y optimizar costos.</li>
+          <li><strong>Lifecycle automatizado</strong> hacia almacenamiento frío (Glacier / OBS Archive) para cumplir retención larga barata.</li>
+          <li><strong>Pruebas de restore periódicas</strong>: un backup no probado no es un backup, es una esperanza.</li>
+          <li><strong>Runbooks versionados en Git</strong> junto con el IaC, no en wikis inconexas.</li>
+          <li><strong>Cross-region solo para Tier 1</strong>: su costo se justifica solo en workloads que no pueden caer.</li>
+        </ul>
+      </div>
+
+      <div class="case-block">
+        <div class="case-block-label">Resultados</div>
+        <div class="results">
+          <div class="result"><div class="result-value">RTO/RPO</div><div class="result-label">Objetivos contractuales cumplidos por tier</div></div>
+          <div class="result"><div class="result-value">3-2-1</div><div class="result-label">Patrón de respaldo aplicado consistentemente</div></div>
+          <div class="result"><div class="result-value">Costos↓</div><div class="result-label">Reducción via tiered storage sin perder cobertura</div></div>
+          <div class="result"><div class="result-value">Probado</div><div class="result-label">Restores validados con frecuencia, no asumidos</div></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+</section>
+
+<!-- ============ FOOTER / CTA ============ -->
+<footer class="footer" id="contacto">
+  <h2 class="footer-title">
+    ¿Algún proyecto cloud<br/>
+    que quieras <em>construir bien</em>?
+  </h2>
+  <p class="footer-desc">
+    Disponible para conversar sobre arquitecturas Multi-Cloud, migraciones SAP HANA,
+    estrategias de HA/DR y automatización con IaC. Respondo rápido.
+  </p>
+  <div class="footer-links">
+    <a href="mailto:cla.gonzalezga@gmail.com">cla.gonzalezga@gmail.com</a>
+    <a href="index.html">Volver al inicio</a>
+    <a href="https://www.linkedin.com/in/claudio-gonzález-gaete-2ab36b227" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/Claudionee" target="_blank" rel="noopener">GitHub</a>
+  </div>
+  <div class="footer-sig">
+    <span>// claudio alejandro gonzález gaete · santiago, chile · 2026</span>
+    <span>case studies v1.0</span>
+  </div>
+</footer>
+
+</body>
+</html>
